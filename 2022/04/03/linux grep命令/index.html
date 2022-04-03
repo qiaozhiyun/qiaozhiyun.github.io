@@ -4,8 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="关于, Qiaozhi&#39;s blog">
-    <meta name="description" content="Qiaozhi&#39;s blog">
+    <meta name="keywords" content="linux grep, Qiaozhi&#39;s blog">
+    <meta name="description" content="linux grep命令
+grep命令用于查找文件里符合条件的字符串    
+基本正则表达式  
+^ 以什么开头 如：”^grep”$ 以什么结尾^$ 表示空号. 匹配除换行符以外的任意一个字符 如：”g.ep”* 匹配0个或多个字符[] ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +22,7 @@
 
     
 
-    <title>关于 | Qiaozhi&#39;s blog</title>
+    <title>linux grep | Qiaozhi&#39;s blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -242,12 +245,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">about</h1>
+                    <h1 class="description center-align post-title">linux grep</h1>
                 </div>
             </div>
         </div>
@@ -361,9 +364,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/linux/">
+                                <span class="chip bg-color">linux</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -375,7 +382,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-02
+                    2022-04-03
                 </div>
                 
 
@@ -399,7 +406,51 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p>linux grep命令</p>
+<p>grep命令用于查找文件里符合条件的字符串    </p>
+<p><strong>基本正则表达式</strong>  </p>
+<p>^ 以什么开头 如：”^grep”<br>$ 以什么结尾<br>^$ 表示空号<br>. 匹配除换行符以外的任意一个字符 如：”g.ep”<br>* 匹配0个或多个字符<br>[] 匹配一个指定范围内的字符 如: “[abc]” 匹配a或b或c<br>[^] 匹配一个不在指定范围内的字符 如：”[^abc]” 匹配除了a或b或c的字符<br>[a-z] 匹配小写字母<br>[A-Z] 匹配大写字母<br>[a-zA-Z] 匹配字母<br>[0-9] or \d 匹配数字<br>\b或&lt; 锚定单词的开始 如”&lt;grep” or “\bgrep” 匹配以grep开头的单词的行<br>\b或&gt; 锚定单词的结尾 如”&gt;grep” or “grep\b” 匹配以grep结尾的单词的行</p>
+<p><strong>扩展正则表达式</strong></p>
+<p>{n} 匹配n次<br>{n,} 至少匹配n次<br>{n,m} 匹配n到m次,优先匹配m次 如: a”{1，3}” 匹配aaa、aa、a<br>{,m} 最多匹配m次<br>+ 匹配至少一次<br>| 表示或<br>? 0个或一个字符</p>
+<p><strong>参数：</strong></p>
+<p>-e 实现多个选项间的逻辑or关系<br>-E 支持扩展的正则表达式，相当于使用egrep<br>-i 搜索时，忽略大小写<br>-r 搜索所有的文件及子目录<br>-l 显示匹配的文件名<br>-n 显示行号<br>-v 显示不包含匹配文本的所有行<br>-o 只显示匹配的字符串 </p>
+<p><strong>实例</strong></p>
+<p><font color="DarkTurquoise">例如：在&#x2F;etc&#x2F;passwd文件中查找单词”root”</font></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">grep</span> root /etc/passwd<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><font color="DarkTurquoise">如果需要搜索文本字符串而不是单个单词，需要加上引号。</font>  </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">grep</span> <span class="token string">"hello world"</span> <span class="token number">1</span>.txt
+``<span class="token variable"><span class="token variable">`</span>  
+<span class="token operator">&lt;</span>font <span class="token assign-left variable">color</span><span class="token operator">=</span><span class="token string">"DarkTurquoise"</span><span class="token operator">></span>搜索多个关键字<span class="token operator">&lt;</span>/font<span class="token operator">></span>  
+<span class="token variable">`</span></span>`<span class="token variable"><span class="token variable">`</span><span class="token function">grep</span> -e <span class="token string">"1"</span> -e <span class="token string">"2"</span> <span class="token number">1</span>.txt<span class="token variable">`</span></span>`<span class="token variable"><span class="token variable">`</span> or <span class="token variable">`</span></span>`<span class="token variable"><span class="token variable">`</span><span class="token function">grep</span> -E <span class="token string">"1|2"</span> <span class="token number">1</span>.txt<span class="token variable">`</span></span>`<span class="token variable"><span class="token variable">`</span>
+  
+<span class="token operator">&lt;</span>font <span class="token assign-left variable">color</span><span class="token operator">=</span><span class="token string">"DarkTurquoise"</span><span class="token operator">></span>搜索以a开头的<span class="token operator">&lt;</span>/font<span class="token operator">></span>  
+<span class="token variable">`</span></span>`<span class="token variable"><span class="token variable">`</span><span class="token function">bash</span>
+<span class="token function">grep</span> <span class="token string">"^a"</span> <span class="token number">1</span>.txt
+<span class="token variable">`</span></span>`<span class="token variable"><span class="token variable">`</span>  
+<span class="token operator">&lt;</span>font <span class="token assign-left variable">color</span><span class="token operator">=</span><span class="token string">"DarkTurquoise"</span><span class="token operator">></span>搜索以a结尾的<span class="token operator">&lt;</span>/font<span class="token operator">></span>  
+<span class="token variable">`</span></span>`<span class="token variable"><span class="token variable">`</span><span class="token function">bash</span>
+<span class="token function">grep</span> <span class="token string">"a$"</span> <span class="token number">1</span>.txt
+<span class="token variable">`</span></span>`<span class="token variable"><span class="token variable">`</span>  
+<span class="token operator">&lt;</span>font <span class="token assign-left variable">color</span><span class="token operator">=</span><span class="token string">"DarkTurquoise"</span><span class="token operator">></span>搜索带a的<span class="token operator">&lt;</span>/font<span class="token operator">></span>  
+<span class="token variable">`</span></span>`<span class="token variable"><span class="token variable">`</span><span class="token function">bash</span>
+<span class="token function">grep</span> <span class="token string">".a"</span> <span class="token number">1</span>.txt
+<span class="token variable">`</span></span>`<span class="token variable"><span class="token variable">`</span>  
+<span class="token operator">&lt;</span>font <span class="token assign-left variable">color</span><span class="token operator">=</span><span class="token string">"DarkTurquoise"</span><span class="token operator">></span>搜索以.结尾的<span class="token operator">&lt;</span>/font<span class="token operator">></span>  
+<span class="token variable">`</span></span>``bash
+<span class="token function">grep</span> <span class="token string">"\.$"</span> <span class="token number">1</span>.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>注：\是转义符</p>
+<p><font color="DarkTurquoise">搜索至少重复一次1的字符</font><br><code>grep &quot;1\&#123;1,\&#125;&quot; 1.txt</code> or <code>egrep &quot;1&#123;1,&#125; 1.txt</code> </p>
+<p>注意：egrep或grep -E可以不转义</p>
+<p><font color="DarkTurquoise">搜索命令行历史记录中输入rm命令的记录</font>  </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">history</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token function">rm</span>
+``<span class="token variable"><span class="token variable">`</span>  
+<span class="token operator">&lt;</span>font <span class="token assign-left variable">color</span><span class="token operator">=</span><span class="token string">"DarkTurquoise"</span><span class="token operator">></span>查找sshd进程信息 <span class="token operator">&lt;</span>/font<span class="token operator">></span>
+<span class="token variable">`</span></span>``bash
+<span class="token function">ps</span> -ef <span class="token operator">|</span> <span class="token function">grep</span> sshd<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
                 
             </div>
             <hr/>
@@ -425,7 +476,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://qiaozhiyun.github.io/about/index.html">https://qiaozhiyun.github.io/about/index.html</a>
+                    <a href="https://qiaozhiyun.github.io/2022/04/03/linux%20grep%E5%91%BD%E4%BB%A4/">https://qiaozhiyun.github.io/2022/04/03/linux%20grep%E5%91%BD%E4%BB%A4/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -462,7 +513,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/linux/">
+                                    <span class="chip bg-color">linux</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -639,13 +694,13 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/about/index.html">
+                <a href="/2022/04/03/linux%20grep%E5%91%BD%E4%BB%A4/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="about">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="linux grep">
                         
-                        <span class="card-title">about</span>
+                        <span class="card-title">linux grep</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -656,7 +711,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-03
                             </span>
                         <span class="publish-author">
                             
@@ -668,22 +723,30 @@
                 </div>
 
                 
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/linux/">
+                        <span class="chip bg-color">linux</span>
+                    </a>
+                    
+                </div>
+                
             </div>
         </div>
         
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/about/index.html">
+                <a href="/2022/04/02/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="about">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title">about</span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -704,7 +767,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
